@@ -2,10 +2,10 @@ nextflow.enable.dsl=2
 
 // All input parameters are read from Nextflow config file "inputs.nf"
 
-include { cellbender_workflow as CB_1 } from './cellbender_workflow.nf'
-include { multiplet_workflow as MU_2 } from './multiplet_workflow.nf'
-include { celltype_pred_workflow as CT_3 } from './celltype_pred_workflow.nf'
-include { merge_workflow as ME_4 } from './merge_workflow.nf'
+include { cellbender_workflow as CB_1 } from "${projectDir}/workflows/cellbender_workflow.nf"
+include { multiplet_workflow as MU_2 } from "${projectDir}/workflows/multiplet_workflow.nf"
+include { celltype_pred_workflow as CT_3 } from "${projectDir}/workflows/celltype_pred_workflow.nf"
+include { merge_workflow as ME_4 } from "${projectDir}/workflows/merge_workflow.nf"
 
 workflow {
     
