@@ -1,5 +1,5 @@
 
-include { run_keras_celltype_prediction } from '../modules/celltype_prediction/run_keras_cell_type_prediction.nf'
+include { run_keras_celltype_prediction } from "${projectDir}/modules/celltype_prediction/run_keras_cell_type_prediction.nf"
 
 workflow celltype_pred_workflow {
     take:

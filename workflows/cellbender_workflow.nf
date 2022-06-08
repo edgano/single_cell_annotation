@@ -1,9 +1,9 @@
 
-include { get_input_cells } from '../modules/cellbender/get_input_cells.nf'
-include { remove_background } from '../modules/cellbender/remove_background.nf'
-include { remove_background__qc_plots } from '../modules/cellbender/remove_background__qc_plots.nf'
-include { remove_background__qc_plots_2 } from '../modules/cellbender/remove_background__qc_plots_2.nf'
-include { preprocess_output } from '../modules/cellbender/preprocess_output.nf'
+include { get_input_cells } from "${projectDir}/modules/cellbender/get_input_cells.nf"
+include { remove_background } from "${projectDir}/modules/cellbender/remove_background.nf"
+include { remove_background__qc_plots } from "${projectDir}/modules/cellbender/remove_background__qc_plots.nf"
+include { remove_background__qc_plots_2 } from "${projectDir}/modules/cellbender/remove_background__qc_plots_2.nf"
+include { preprocess_output } from "${projectDir}/modules/cellbender/preprocess_output.nf"
 
 workflow cellbender_workflow {
     take:

@@ -1,5 +1,5 @@
-include { merge } from '../modules/merge/merge.nf'
-include { plot_merge } from '../modules/merge/plot_merge.nf'
+include { merge } from "${projectDir}/modules/merge/merge.nf"
+include { plot_merge } from "${projectDir}/modules/merge/plot_merge.nf"
 
 workflow merge_workflow {
     take:
