@@ -1,4 +1,4 @@
-include { run_scrublet } from "${projectDir}/modules/multiplet/run_scrublet.nf"${projectDir}
+include { run_scrublet } from "${projectDir}/modules/multiplet/run_scrublet.nf"
 include { make_cellmetadata_pipeline_input } from "${projectDir}/modules/multiplet/make_cellmetadata_pipeline_input.nf"
 
 workflow multiplet_workflow {
