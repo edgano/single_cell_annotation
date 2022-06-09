@@ -31,7 +31,7 @@ cellbender_unfiltered_h5=cellbender_FPR_\${fprid}_unfiltered.h5
 n_expected_cells=\$(cat $expectedcells)
 n_total_droplets_included=\$(cat $totaldropletsinclude)
 
-python ${projectDir}/../bin/037-plot_cellranger_vs_cellbender.py \\
+python ${projectDir}/bin/037-plot_cellranger_vs_cellbender.py \\
   --samplename \"${experiment_id}\" \\
   --raw_cellranger_mtx \"${raw_cellranger_mtx}\" \\
   --filtered_cellranger_mtx \"${filtered_cellranger_mtx}\" \\

@@ -97,7 +97,7 @@ for i in \$(ls *.h5); do
   echo \$out_file
 done
 
-python ${projectDir}/../bin/032-clean_cellbender_results.py \\
+python ${projectDir}/bin/032-clean_cellbender_results.py \\
   --nf_outdir_tag ${params.outdir}/cellbender/3_preprocess_output/${biopsy_type}/${experiment_id} \\
   --cb_outfile_tag ${outfile} \\
   --experiment_id ${experiment_id} \\

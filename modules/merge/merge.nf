@@ -31,10 +31,10 @@ cat h5ad_paths.txt | sed s'/___.*\$//'g > sample_names.txt
 printf \"experiment_id\\tanndata_file\\n" > input_file_paths.tsv
 paste -d \"\\t\" sample_names.txt h5ad_paths.txt >> input_file_paths.tsv
 
-Rscript ${projectDir}/../bin/041-clean_metadata.R \\
+Rscript ${projectDir}/bin/041-clean_metadata.R \\
   --input_file ${samples_metainfo_tsv}
 
-python ${projectDir}/../bin/042-scanpy_merge.py \\
+python ${projectDir}/bin/042-scanpy_merge.py \\
     --number_cpu ${task.cpus} \\
     --anndata_files input_file_paths.tsv \\
     --params_yaml ${filter_params} \\

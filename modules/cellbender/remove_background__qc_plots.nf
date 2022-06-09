@@ -44,7 +44,7 @@ echo "${h5_filtered_cellbender}" | sed s/","/"\\n"/g > files.txt
 for i in \$(cat files.txt); do
 echo \$i
 out_file=\$(echo \$i | sed s/".h5"//)
-python ${projectDir}/../bin/035-analyse_cellbender_results.py \\
+python ${projectDir}/bin/035-analyse_cellbender_results.py \\
   --tenxdata_path txd_input  \\
   --h5_cellbender \$i \\
   --output_file cellbender_results-\$out_file \\

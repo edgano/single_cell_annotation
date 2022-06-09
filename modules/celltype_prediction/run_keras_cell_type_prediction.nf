@@ -28,7 +28,7 @@ process run_keras_celltype_prediction {
     
     script:
 """
-python ${projectDir}/../bin/0057-predict_clusters_keras_model-anndata.py \\
+python ${projectDir}/bin/0057-predict_clusters_keras_model-anndata.py \\
   --h5_anndata \"${keras_input_h5ad}\" \\
   --h5_layer \"${params.celltype_prediction.keras.h5_layer}\" \\
   --keras_model \"${params.celltype_prediction.keras.keras_model}\" \\
