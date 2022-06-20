@@ -92,9 +92,10 @@
             }
         },
         "merge": {
+            "title": "Merge options",
             "type": "object",
             "properties": {
-              "filter_paramsoo": { "type": "string", "default": "/lustre/scratch119/humgen/projects/sc-eqtl-ibd/data/scrna_cellranger/single_cell_annotation/filter_params.yml" },
+              "filter_params": { "type": "string", "default": "/lustre/scratch119/humgen/projects/sc-eqtl-ibd/data/scrna_cellranger/single_cell_annotation/filter_params.yml" },
               "metadata_key": { "type": "string", "default": "sanger_sample_id" },
               "anndata_compression_opts": { "type": "integer", "default": 9 }
             }
