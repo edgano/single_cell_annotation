@@ -87,15 +87,7 @@
                     "type": "integer",
                     "default": 10000,
                     "description": "Gb RAM memory for cellbender gpu task"
-                },
-                "merge": {
-                    "type": "object",
-                    "properties": {
-                      "filter_paramsoo": { "type": "string", "default": "/lustre/scratch119/humgen/projects/sc-eqtl-ibd/data/scrna_cellranger/single_cell_annotation/filter_params.yml" },
-                      "metadata_key": { "type": "string", "default": "sanger_sample_id" },
-                      "anndata_compression_opts": { "type": "integer", "default": 9 }
-                    }
-                  }
+                }
             }
         }
     },
@@ -112,5 +104,13 @@
         {
             "$ref": "#/definitions/generic_options"
         }
-    ]
+    ],
+    "merge": {
+        "type": "object",
+        "properties": {
+          "filter_paramsoo": { "type": "string", "default": "/lustre/scratch119/humgen/projects/sc-eqtl-ibd/data/scrna_cellranger/single_cell_annotation/filter_params.yml" },
+          "metadata_key": { "type": "string", "default": "sanger_sample_id" },
+          "anndata_compression_opts": { "type": "integer", "default": 9 }
+        }
+      }
 }
