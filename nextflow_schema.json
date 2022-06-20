@@ -1,0 +1,116 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/./master/nextflow_schema.json",
+    "title": ". pipeline parameters",
+    "description": "",
+    "type": "object",
+    "definitions": {
+        "input_output_options": {
+            "title": "Input/output options",
+            "type": "object",
+            "fa_icon": "fas fa-terminal",
+            "description": "Define where the pipeline should find input data and save output data.",
+            "required": [
+                "outdir"
+            ],
+            "properties": {
+                "cellranger_10x_dir": {
+                    "type": "string",
+                    "default": "/lustre/scratch119/humgen/projects/sc-eqtl-ibd/data/scrna_cellranger/results/iget_cellranger/full_data",
+                    "description": "path to directory where cellranger 10x directories are 3 depths down, where name of 10x dir is name of sample."
+                },
+                "samples_metainfo_tsv": {
+                    "type": "string",
+                    "default": "/lustre/scratch119/humgen/projects/sc-eqtl-ibd/data/scrna_cellranger/results/info_stats/samples_metainfo.tsv",
+                    "description": "path to tab-delimited table with columns row.sanger_sample_id, row.biopsy_type, row.disease_status"
+                },
+                "subsample_dev_n": {
+                    "type": "integer",
+                    "default": -1,
+                    "description": "subsample input samples for pipeline development? specfic n or -1 for all (not subsampling)"
+                },
+                "outdir": {
+                    "type": "string",
+                    "format": "directory-path",
+                    "description": "The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.",
+                    "fa_icon": "fas fa-folder-open"
+                },
+                "reportdir": {
+                    "type": "string",
+                    "default": "/Users/en6/projects/single_cell_annotation/../reports"
+                }
+            }
+        },
+        "subworkflow_to_run": {
+            "title": "Subworkflow to run",
+            "type": "object",
+            "description": "",
+            "default": "",
+            "properties": {
+                "run_cellbender_workflow": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "run_multiplet_workflow": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "run_celltype_pred_workflow": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "run_merge_workflow": {
+                    "type": "boolean",
+                    "default": true
+                }
+            }
+        },
+        "reference_genome_options": {
+            "title": "Reference genome options",
+            "type": "object",
+            "fa_icon": "fas fa-dna",
+            "description": "Reference genome related files and options required for the workflow."
+        },
+        "generic_options": {
+            "title": "Generic options",
+            "type": "object",
+            "fa_icon": "fas fa-file-import",
+            "description": "Less common options for the pipeline, typically set in a config file.",
+            "help_text": "These options are common to all nf-core pipelines and allow you to customise some of the core preferences for how the pipeline runs.\n\nTypically these options would be set in a Nextflow config file loaded for all pipeline runs, such as `~/.nextflow/config`.",
+            "properties": {
+                "copy_mode": {
+                    "type": "string",
+                    "default": "rellink",
+                    "description": "publish relative links from work to results publish dir"
+                },
+                "mem_gpu": {
+                    "type": "integer",
+                    "default": 10000,
+                    "description": "Gb RAM memory for cellbender gpu task"
+                },
+                "merge": {
+                    "type": "object",
+                    "properties": {
+                      "filter_paramsoo": { "type": "string", "default": "/lustre/scratch119/humgen/projects/sc-eqtl-ibd/data/scrna_cellranger/single_cell_annotation/filter_params.yml" },
+                      "metadata_key": { "type": "string", "default": "sanger_sample_id" },
+                      "anndata_compression_opts": { "type": "integer", "default": 9 }
+                    }
+                  }
+            }
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/input_output_options"
+        },
+        {
+            "$ref": "#/definitions/subworkflow_to_run"
+        },
+        {
+            "$ref": "#/definitions/reference_genome_options"
+        },
+        {
+            "$ref": "#/definitions/generic_options"
+        }
+    ]
+}
